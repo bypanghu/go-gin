@@ -6,12 +6,29 @@ import (
 	"code/01/utils/response"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"net/http"
+	"code/01/utils/jwt"
 )
 
 func UserLogin(e *gin.Context)  {
 	fmt.Println("index")
-	utilGin := response.Gin{Ctx: e}
-	utilGin.Response(2000,"登录",nil)
+
+	var user items.User
+	err := e.ShouldBind(&user)
+	if err != nil {
+		utilGin := response.Gin{Ctx: e}
+		utilGin.Response(2000,"参数错误",nil)
+		return
+	}
+	// 生成Token
+	tokenString, _ :=jwt.GenToken("123456")
+	e.JSON(http.StatusOK, gin.H{
+		"code": 2000,
+		"msg":  "success",
+		"data": gin.H{"token": tokenString},
+	})
+
+	return
 }
 
 func UserCheckSame(name string)(bool )  {

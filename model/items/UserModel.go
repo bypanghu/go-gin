@@ -10,6 +10,7 @@ type User struct {
 	ID int `json:"id"`
 	Name string `json:"name"`
 	Nickname string `json:"nickname"`
+	Password string `json:"password"`
 	Status int `json:"status" default:"1"`
 }
 

@@ -1,5 +1,7 @@
 package config
 
+import "time"
+
 const (
 	AppMode = "release" //debug or release
 	AppPort = ":8888"
@@ -18,4 +20,10 @@ const (
 	DataBaseRoot = "root"		//数据库账号
 	DataBasePassword = "root"		//数据库密码
 	DataBaseTable ="school"			//数据表
+
+
+	//jwt相关
+	TokenExpireDuration = time.Hour * 2
+	TokenIssuer = "app" //token签发人
+
 )

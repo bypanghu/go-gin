@@ -21,10 +21,10 @@ func main()  {
 
 
 	fmt.Println("|-----------------------------------|")
-	fmt.Println("|            " + config.AppName +"  	  |")
+	fmt.Println("|               " + config.AppName +"                 |")
 	fmt.Println("|-----------------------------------|")
 	fmt.Println("|  Go Http Server Start Successful  |")
-	fmt.Println("|    Port" + config.AppPort + "  	     		   |")
+	fmt.Println("|         Port" + config.AppPort + "                 |")
 	fmt.Println("|-----------------------------------|")
 	fmt.Println("")
 
