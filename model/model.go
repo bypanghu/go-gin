@@ -1,10 +1,9 @@
 package model
 
 import (
-	"fmt"
+	"code/01/config"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
-	"code/01/config"
 	"time"
 )
 
@@ -22,7 +21,6 @@ type Model struct {
 
 func InitMysql()(err error)  {
 	dsn := config.DataBaseRoot+":"+config.DataBasePassword+"@("+ config.DateBaseIp +":"+config.DataBasePort+")/"+config.DataBaseTable+"?charset=utf8mb4&parseTime=True&loc=Local"
-	fmt.Println(dsn)
 	DB , err = gorm.Open("mysql",dsn)
 	if err != nil {
 		return

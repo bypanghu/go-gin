@@ -3,6 +3,7 @@ package controller
 import (
 	"code/01/model"
 	"code/01/model/items"
+	"code/01/utils/errormsg"
 	"code/01/utils/response"
 	"fmt"
 	"github.com/gin-gonic/gin"
@@ -17,7 +18,7 @@ func UserLogin(e *gin.Context)  {
 	err := e.ShouldBind(&user)
 	if err != nil {
 		utilGin := response.Gin{Ctx: e}
-		utilGin.Response(2000,"参数错误",nil)
+		utilGin.Response(errormsg.ERROR_TOKEN_WRONG,errormsg.GetErrMsg(errormsg.ERROR_TOKEN_WRONG),nil)
 		return
 	}
 	// 生成Token
@@ -52,12 +53,12 @@ func UserAdd(e *gin.Context)  {
 	if(userOnly){
 		err := items.InnertUser(&user)
 		if err != nil {
-			utilGin.Response(40000,"error:"+err.Error(),nil)
+			utilGin.Response(errormsg.ERROR_SYSTERM_ERROR,"error:"+err.Error(),nil)
 		}else {
-			utilGin.Response(2000,"success",nil)
+			utilGin.Response(errormsg.SUCCSE,"success",nil)
 		}
 	}else{
-		utilGin.Response(40000,"用户名不能重复",nil)
+		utilGin.Response(errormsg.ERROR_USERNAME_USED,errormsg.GetErrMsg(errormsg.ERROR_USERNAME_USED),nil)
 	}
 
 

@@ -19,7 +19,6 @@ func main()  {
 	// 设置路由
 	routers.SetupRouter(app)
 
-
 	fmt.Println("|-----------------------------------|")
 	fmt.Println("|               " + config.AppName +"                 |")
 	fmt.Println("|-----------------------------------|")

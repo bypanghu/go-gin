@@ -20,6 +20,4 @@ func InnertUser(user *User)(err error)  {
 		return err
 	}
 	return
-
-
 }
